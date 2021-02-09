@@ -1,0 +1,737 @@
+head	1.13;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.13
+date	2006.10.15.17.00.51;	author savage;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2005.06.02.22.37.49;	author savage;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2005.06.01.20.24.19;	author savage;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2005.05.31.23.30.38;	author savage;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2005.05.29.00.30.40;	author savage;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2005.05.25.23.15.34;	author savage;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2005.05.24.22.15.02;	author savage;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2005.05.11.13.38.18;	author savage;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2005.05.06.21.39.26;	author savage;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2005.05.05.18.33.35;	author savage;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2005.05.03.20.58.46;	author savage;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2005.04.30.13.59.58;	author savage;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2004.10.06.22.51.26;	author savage;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.13
+log
+@Basic changes
+@
+text
+@program SoAoS;
+{******************************************************************************}
+{
+  $Id: SoAoS.dpr,v 1.12 2005/06/02 22:37:49 savage Exp $
+
+}
+{                                                                              }
+{               Siege Of Avalon : Open Source Edition                          }
+{               -------------------------------------                          }
+{                                                                              }
+{ Portions created by Digital Tome L.P. Texas USA are                          }
+{ Copyright ©1999-2000 Digital Tome L.P. Texas USA                             }
+{ All Rights Reserved.                                                         }
+{                                                                              }
+{ Portions created by Team SOAOS are                                           }
+{ Copyright (C) 2003 - Team SOAOS.                                             }
+{                                                                              }
+{                                                                              }
+{ Contributor(s)                                                               }
+{ --------------                                                               }
+{ Dominique Louis <Dominique@@SavageSoftware.com.au>                            }
+{                                                                              }
+{                                                                              }
+{                                                                              }
+{ You may retrieve the latest version of this file at the SOAOS project page : }
+{   http://www.sourceforge.com/projects/soaos                                  }
+{                                                                              }
+{ The contents of this file maybe used with permission, subject to             }
+{ the GNU Lesser General Public License Version 2.1 (the "License"); you may   }
+{ not use this file except in compliance with the License. You may             }
+{ obtain a copy of the License at                                              }
+{ http://www.opensource.org/licenses/lgpl-license.php                          }
+{                                                                              }
+{ Software distributed under the License is distributed on an                  }
+{ "AS IS" basis, WITHOUT WARRANTY OF ANY KIND, either express or               }
+{ implied. See the License for the specific language governing                 }
+{ rights and limitations under the License.                                    }
+{                                                                              }
+{ Description                                                                  }
+{ -----------                                                                  }
+{                                                                              }
+{                                                                              }
+{                                                                              }
+{                                                                              }
+{                                                                              }
+{                                                                              }
+{                                                                              }
+{ Requires                                                                     }
+{ --------                                                                     }
+{   SDL ( http://www.libsdl.org ) and DirectX ( http://www.microsoft.com )     }
+{   Runtime libraris on Win32 and just SDL ( http://www.libsdl.org ) shared    }
+{   objects or their equivalents on Linux and other Unixes                     }
+{                                                                              }
+{ Programming Notes                                                            }
+{ -----------------                                                            }
+{   Should compile with Delphi, Kylix and FreePascal on Win32 and Linux for    }
+{   starter and FreeBSD and MacOS X etc there after.                           }
+{                                                                              }
+{                                                                              }
+{ Revision History                                                             }
+{ ----------------                                                             }
+{   September   30 2004 - DL : Initial Creation                                }
+{                                                                              }
+{
+  $Log: SoAoS.dpr,v $
+  Revision 1.12  2005/06/02 22:37:49  savage
+  More Cross-Platform additions and amendments
+
+  Revision 1.11  2005/06/01 20:24:19  savage
+  Fix for Linux case sensitivity issues
+
+  Revision 1.10  2005/05/31 23:30:38  savage
+  Added Linux code to show opening movie.
+
+  Revision 1.9  2005/05/29 00:30:40  savage
+  Play Opening movie if it is available
+
+  Revision 1.8  2005/05/25 23:15:34  savage
+  Latest Changes
+
+  Revision 1.7  2005/05/24 22:15:02  savage
+  Latest additions to determine if it is the first time the game is run.
+
+
+}
+{******************************************************************************}
+
+uses
+  SysUtils,
+  sdl in 'sdl/sdl.pas',
+  sdlwindow in 'sdl/sdlwindow.pas',
+  sdlgameinterface in 'sdl/sdlgameinterface.pas',
+  sdltruetypefont in 'sdl/sdltruetypefont.pas',
+  sdlticks in 'sdl/sdlticks.pas',
+  sdlinput in 'sdl/sdlinput.pas',
+  SiegeInterfaces in 'interface/SiegeInterfaces.pas',
+  globals in 'engine/globals.pas',
+  SoAPreferences in 'engine/SoAPreferences.pas',
+  Externalizer in 'interface/Externalizer.pas',
+  AdventureLog in 'engine/AdventureLog.pas',
+  GameIntro in 'interface/GameIntro.pas',
+  GameMainMenu in 'interface/GameMainMenu.pas',
+  NewGame in 'interface\NewGame.pas',
+  LoadSaveGame in 'interface/LoadSaveGame.pas',
+  GameOptions in 'interface/GameOptions.pas',
+  GameJournal in 'interface/GameJournal.pas',
+  GameCredits in 'interface/GameCredits.pas',
+  YesNoDialog in 'interface/YesNoDialog.pas',
+  SaveFile in 'engine/SaveFile.pas',
+  AStar in 'ai/AStar.pas',
+  SiegeTypes in 'engine/SiegeTypes.pas',
+  CustomAniFigure in 'engine/CustomAniFigure.pas',
+  ListBoxDialog in 'interface/ListBoxDialog.pas',
+  logger in 'sdl/logger.pas',
+  sdl_ttf in 'sdl/sdl_ttf.pas',
+  sdlaudiomixer in 'sdl/sdlaudiomixer.pas',
+  sdl_mixer in 'sdl/sdl_mixer.pas',
+  smpeg in 'sdl/smpeg.pas',
+  registryuserpreferences in 'sdl/registryuserpreferences.pas',
+  userpreferences in 'sdl/userpreferences.pas',
+  AniDec30 in 'engine/AniDec30.pas',
+  xplatformutils in 'sdl/xplatformutils.pas';
+
+{$IFDEF WIN32}
+{$R *.res}
+{$ENDIF}
+
+procedure PlayBinkMovie( aMoviePath, aSwitches : string );
+const
+  {$IFDEF WIN32}
+  BinkPlayer : string = 'BinkPlay';
+  {$ELSE}
+  BinkPlayer : string = 'BinkPlayer';
+  {$ENDIF}
+var
+  MovieProcess : string;
+  Parameters : array[0..1] of string;
+begin
+  MovieProcess := ExtractFilePath( ParamStr( 0 ) ) + BinkPlayer;
+  Parameters[0] := aMoviePath;
+  Parameters[1] := aSwitches;
+  ExecAndWait( MovieProcess, Parameters );
+end;
+
+
+procedure PlayOpeningMovie;
+var
+  Movie : string;
+begin
+  Movie := DIR_CUR + SoASettings.MoviePath + DIR_SEP + SoASettings.OpeningMovie;
+  if FileExists( Movie )
+  and ( bShowIntro ) then
+  begin
+     if ( SoASettings.FullScreen ) then
+       PlayBinkMovie( Movie, SoASettings.MovieSwitches + '/P' )
+     else
+       PlayBinkMovie( Movie, '/I1' );
+  end;
+end;
+
+procedure PlayClosingMovie;
+var
+  Movie : string;
+begin
+  Movie := DIR_CUR + SoASettings.MoviePath + DIR_SEP + SoASettings.ClosingMovie;
+  if FileExists( Movie )
+  and ( bShowOuttro ) then
+  begin
+    if ( SoASettings.FullScreen ) then
+      PlayBinkMovie( Movie, SoASettings.MovieSwitches )
+    else
+      PlayBinkMovie( Movie, '/I1' );
+  end;
+end;
+
+begin
+  if ( SoASettings.FullScreen ) then
+  begin
+    ScreenFlags := SDL_DOUBLEBUF or SDL_SWSURFACE or SDL_FULLSCREEN;
+  end
+  else
+  begin
+    ScreenFlags := SDL_DOUBLEBUF or SDL_SWSURFACE;
+  end;
+
+  PlayOpeningMovie;
+  bShowOuttro := False; // Game must force to true to show closing movie
+
+  Application := TSDL2DWindow.Create( SoASettings.ScreenWidth, SoASettings.ScreenHeight, SoASettings.ScreenBPP, ScreenFlags );
+  try
+    Application.SetIcon( nil, 0 );
+    Application.ActivateVideoMode;
+    Application.SetCaption( 'Siege of Avalon : Open Source Edition', '' );
+
+    // Instantiate to get into our game loop.
+    if SoASettings.ShowIntro then
+      CurrentGameInterface := TGameIntro
+    else
+      CurrentGameInterface := TMainMenu;
+
+    while CurrentGameInterface <> nil do
+    begin
+      GameWindow := CurrentGameInterface.Create( Application );
+      GameWindow.LoadSurfaces;
+
+      Application.Show;
+      CurrentGameInterface := GameWindow.NextGameInterface;
+
+      if ( GameWindow <> nil ) then
+        FreeAndNil( GameWindow );
+    end;
+
+    PlayClosingMovie;
+  finally
+    Application.Free;
+  end;
+end.
+@
+
+
+1.12
+log
+@More Cross-Platform additions and amendments
+@
+text
+@d4 1
+a4 1
+  $Id: SoAoS.dpr,v 1.11 2005/06/01 20:24:19 savage Exp $
+d66 3
+a88 1
+  IniFiles,
+d103 1
+a103 1
+  NewGame in 'interface/NewGame.pas',
+@
+
+
+1.11
+log
+@Fix for Linux case sensitivity issues
+@
+text
+@d4 1
+a4 1
+  $Id: SoAoS.dpr,v 1.10 2005/05/31 23:30:38 savage Exp $
+d66 3
+a85 12
+  {$IFDEF WIN32}
+  Windows,
+  {$ELSE}
+  {$IFDEF UNIX}
+    {$IFDEF FPC}
+    libc,
+    {$ELSE}
+    Libc,
+    Xlib,
+    {$ENDIF}
+  {$ENDIF}
+  {$ENDIF}
+d88 33
+a120 32
+  sdl in 'sdl\sdl.pas',
+  sdlwindow in 'sdl\sdlwindow.pas',
+  sdlgameinterface in 'sdl\sdlgameinterface.pas',
+  sdltruetypefont in 'sdl\sdltruetypefont.pas',
+  sdlticks in 'sdl\sdlticks.pas',
+  sdlinput in 'sdl\sdlinput.pas',
+  SiegeInterfaces in 'interface\SiegeInterfaces.pas',
+  globals in 'engine\globals.pas',
+  SoAPreferences in 'engine\SoAPreferences.pas',
+  Externalizer in 'interface\Externalizer.pas',
+  AdventureLog in 'engine\AdventureLog.pas',
+  GameIntro in 'interface\GameIntro.pas',
+  GameMainMenu in 'interface\GameMainMenu.pas',
+  NewGame in 'interface\NewGame.pas',
+  LoadSaveGame in 'interface\LoadSaveGame.pas',
+  GameOptions in 'interface\GameOptions.pas',
+  GameJournal in 'interface\GameJournal.pas',
+  GameCredits in 'interface\GameCredits.pas',
+  YesNoDialog in 'interface\YesNoDialog.pas',
+  SaveFile in 'engine\SaveFile.pas',
+  AStar in 'ai\AStar.pas',
+  SiegeTypes in 'engine\SiegeTypes.pas',
+  CustomAniFigure in 'engine\CustomAniFigure.pas',
+  ListBoxDialog in 'interface\ListBoxDialog.pas',
+  logger in 'sdl\logger.pas',
+  sdl_ttf in 'sdl\sdl_ttf.pas',
+  sdlaudiomixer in 'sdl\sdlaudiomixer.pas',
+  sdl_mixer in 'sdl\sdl_mixer.pas',
+  smpeg in 'sdl\smpeg.pas',
+  registryuserpreferences in 'sdl\registryuserpreferences.pas',
+  userpreferences in 'sdl\userpreferences.pas',
+  AniDec30 in 'engine\AniDec30.pas';
+d135 1
+a135 15
+{$IFDEF WIN32}
+  ProcessInfo: TProcessInformation;
+  Startupinfo: TStartupInfo;
+  ExitCode: longword;
+{$ELSE}
+{$IFDEF UNIX}
+  pid: PID_T;
+  Max: Integer;
+  I: Integer;
+  parg: PPCharArray;
+  argnum: Integer;
+  returnvalue : Integer;
+  arguments : array[0..1] of string;
+{$ENDIF}
+{$ENDIF}
+d138 3
+a140 60
+  {$IFDEF WIN32}
+  // Initialize the structures
+  FillChar(ProcessInfo, sizeof(TProcessInformation), 0);
+  FillChar(Startupinfo, sizeof(TStartupInfo), 0);
+  Startupinfo.cb := sizeof(TStartupInfo);
+
+  // Attempts to create the process
+  Startupinfo.dwFlags := STARTF_USESHOWWINDOW;
+  Startupinfo.wShowWindow := 1;
+  if CreateProcess( nil, PChar( MovieProcess + ' ' + aMoviePath + ' ' + aSwitches ), nil, nil, False, {CREATE_NEW_CONSOLE or} NORMAL_PRIORITY_CLASS
+    , nil, nil, Startupinfo, ProcessInfo ) then
+  begin
+    // The process has been successfully created
+    // No let's wait till it ends...
+    WaitForSingleObject(ProcessInfo.hProcess, INFINITE);
+
+    // Process has finished. Now we should close it.
+    GetExitCodeProcess(ProcessInfo.hProcess, ExitCode);  // Optional
+    CloseHandle(ProcessInfo.hThread);
+    CloseHandle(ProcessInfo.hProcess);
+  end;
+  {$ELSE}
+  {$IFDEF UNIX}
+  arguments[0] := aMoviePath;
+  arguments[1] := aSwitches;
+  
+  pid := fork;
+
+  if pid = 0 then
+  begin
+    Max := sysconf(_SC_OPEN_MAX);
+    for i := (STDERR_FILENO+1) to Max do
+    begin
+      fcntl(i, F_SETFD, FD_CLOEXEC);
+    end;
+
+    argnum := High(arguments) + 1;
+
+    GetMem(parg,(2 + argnum) * sizeof(PChar));
+    parg[0] := PChar(MovieProcess);
+
+    i := 0;
+
+    while i <= high(arguments) do
+    begin
+      inc(i);
+      parg[i] := PChar(arguments[i-1]);
+    end;
+
+    parg[i+1] := nil;
+    execvp(PChar(MovieProcess),PPChar(@@parg[0]));
+    halt;
+  end;
+
+  if pid > 0 then
+  begin
+    waitpid(pid,@@returnvalue,0);
+  end;
+  {$ENDIF}
+  {$ENDIF}
+d148 1
+a148 1
+  Movie := SoASettings.MoviePath + '\' + SoASettings.OpeningMovie;
+d163 1
+a163 1
+  Movie := SoASettings.MoviePath + '\' + SoASettings.ClosingMovie;
+@
+
+
+1.10
+log
+@Added Linux code to show opening movie.
+@
+text
+@d4 1
+a4 1
+  $Id: SoAoS.dpr,v 1.9 2005/05/29 00:30:40 savage Exp $
+d66 3
+d88 1
+a88 5
+    pthreads,
+    baseunix,
+    unix,
+    x,
+    xlib;
+d91 1
+a91 1
+    Xlib;
+@
+
+
+1.9
+log
+@Play Opening movie if it is available
+@
+text
+@d4 1
+a4 1
+  $Id: SoAoS.dpr,v 1.8 2005/05/25 23:15:34 savage Exp $
+d66 3
+d82 13
+d135 1
+a135 1
+procedure PlayBinkMovie( aSwitches : string );
+d143 1
+a143 1
+  MovieCommandLine : string;
+d149 9
+a157 1
+
+d160 1
+a160 1
+  MovieCommandLine := ExtractFilePath( ParamStr( 0 ) ) + BinkPlayer + ' ' + SoASettings.MoviePath + '\' + SoASettings.OpeningMovie + ' ' + aSwitches;
+d170 1
+a170 1
+  if CreateProcess( nil, PChar( MovieCommandLine ), nil, nil, False, {CREATE_NEW_CONSOLE or} NORMAL_PRIORITY_CLASS
+d183 37
+d225 2
+d228 2
+a229 1
+  if FileExists( SoASettings.MoviePath + '/' + SoASettings.OpeningMovie )
+d233 1
+a233 1
+       PlayBinkMovie( SoASettings.MovieSwitches + '/P' )
+d235 1
+a235 1
+       PlayBinkMovie( '/I1' );
+d240 2
+d243 2
+a244 1
+  if FileExists( SoASettings.MoviePath + '/' + SoASettings.ClosingMovie )
+d248 1
+a248 1
+      PlayBinkMovie( SoASettings.MovieSwitches )
+d250 1
+a250 1
+      PlayBinkMovie( '/I1' );
+@
+
+
+1.8
+log
+@Latest Changes
+@
+text
+@d4 1
+a4 1
+  $Id: SoAoS.dpr,v 1.7 2005/05/24 22:15:02 savage Exp $
+d66 3
+d77 3
+d112 2
+a113 1
+  userpreferences in 'sdl\userpreferences.pas';
+d119 44
+d165 1
+a165 1
+  if FileExists( SoASettings.OpeningMovie )
+d168 4
+a171 1
+
+d177 1
+a177 1
+  if FileExists( SoASettings.ClosingMovie )
+d180 4
+a183 1
+
+@
+
+
+1.7
+log
+@Latest additions to determine if it is the first time the game is run.
+@
+text
+@d4 1
+a4 1
+  $Id: SoAoS.dpr,v 1.3 2005/05/13 14:02:49 savage Exp $
+d66 3
+d76 6
+a81 3
+  sdl,
+  sdlwindow,
+  sdlgameinterface,
+a96 1
+  DXEffects in 'graphics\DXEffects.pas',
+d99 8
+a106 1
+  ListBoxDialog in 'interface\ListBoxDialog.pas';
+d143 1
+a143 1
+  SoAoSGame := TSDL2DWindow.Create( SoASettings.ScreenWidth, SoASettings.ScreenHeight, SoASettings.ScreenBPP, ScreenFlags );
+d145 3
+a147 3
+    SoAoSGame.SetIcon( SDL_LoadBMP( '' ), 0 );
+    SoAoSGame.ActivateVideoMode;
+    SoAoSGame.SetCaption( 'Siege of Avalon : Open Source Edition', '' );
+d157 1
+a157 1
+      GameWindow := CurrentGameInterface.Create( SoAoSGame );
+d160 1
+a160 1
+      SoAoSGame.Show;
+d169 1
+a169 1
+    SoAoSGame.Free;
+@
+
+
+1.6
+log
+@Fix for GameOption Sliders and tidying up the GameJournal and AdventureLog files.
+@
+text
+@d2 67
+a90 1
+  digifx in 'graphics\digifx.pas',
+d96 1
+d98 1
+d138 4
+a141 1
+    CurrentGameInterface := TGameIntro;
+@
+
+
+1.5
+log
+@Changes to support TTF files for each language, should hopefully make it easier to add non-latin languages later on.
+@
+text
+@d64 4
+a67 3
+  SoAoSGame.SetIcon( SDL_LoadBMP( '' ), 0 );
+  SoAoSGame.ActivateVideoMode;
+  SoAoSGame.SetCaption( 'Siege of Avalon : Open Source Edition', '' );
+d69 2
+a70 7
+  // Instantiate to get into our game loop.
+  CurrentGameInterface := TGameIntro;
+  
+  while CurrentGameInterface <> nil do
+  begin
+    GameWindow := CurrentGameInterface.Create( SoAoSGame );
+    GameWindow.LoadSurfaces;
+d72 4
+a75 2
+    SoAoSGame.Show;
+    CurrentGameInterface := GameWindow.NextGameInterface;
+d77 2
+a78 3
+    if ( GameWindow <> nil ) then
+      FreeAndNil( GameWindow );
+  end;
+d80 3
+a82 1
+  PlayClosingMovie;
+d84 4
+a87 1
+  SoAoSGame.Free;
+@
+
+
+1.4
+log
+@Changed slashed to forward slashed so that it compiles on Linux etc.
+@
+text
+@d9 20
+a28 20
+  SiegeInterfaces in 'interface/SiegeInterfaces.pas',
+  globals in 'engine/globals.pas',
+  SoAPreferences in 'engine/SoAPreferences.pas',
+  Externalizer in 'interface/Externalizer.pas',
+  AdventureLog in 'engine/AdventureLog.pas',
+  GameIntro in 'interface/GameIntro.pas',
+  GameMainMenu in 'interface/GameMainMenu.pas',
+  NewGame in 'interface/NewGame.pas',
+  LoadSaveGame in 'interface/LoadSaveGame.pas',
+  GameOptions in 'interface/GameOptions.pas',
+  GameJournal in 'interface/GameJournal.pas',
+  GameCredits in 'interface/GameCredits.pas',
+  YesNoDialog in 'interface/YesNoDialog.pas',
+  SaveFile in 'engine/SaveFile.pas',
+  AStar in 'ai/AStar.pas',
+  digifx in 'graphics/digifx.pas',
+  DXEffects in 'graphics/DXEffects.pas',
+  SiegeTypes in 'engine/SiegeTypes.pas',
+  CustomAniFigure in 'engine/CustomAniFigure.pas',
+  ListBoxDialog in 'interface/ListBoxDialog.pas';
+@
+
+
+1.3
+log
+@Fixes so that it compiles with FreePascal.
+@
+text
+@d9 20
+a28 20
+  SiegeInterfaces in 'interface\SiegeInterfaces.pas',
+  globals in 'engine\globals.pas',
+  SoAPreferences in 'engine\SoAPreferences.pas',
+  Externalizer in 'interface\Externalizer.pas',
+  AdventureLog in 'engine\AdventureLog.pas',
+  GameIntro in 'interface\GameIntro.pas',
+  GameMainMenu in 'interface\GameMainMenu.pas',
+  NewGame in 'interface\NewGame.pas',
+  LoadSaveGame in 'interface\LoadSaveGame.pas',
+  GameOptions in 'interface\GameOptions.pas',
+  GameJournal in 'interface\GameJournal.pas',
+  GameCredits in 'interface\GameCredits.pas',
+  YesNoDialog in 'interface\YesNoDialog.pas',
+  SaveFile in 'engine\SaveFile.pas',
+  AStar in 'ai\AStar.pas',
+  digifx in 'graphics\digifx.pas',
+  DXEffects in 'graphics\DXEffects.pas',
+  SiegeTypes in 'engine\SiegeTypes.pas',
+  CustomAniFigure in 'engine\CustomAniFigure.pas',
+  ListBoxDialog in 'interface\ListBoxDialog.pas';
+@
+
+
+1.2
+log
+@Latest code changes
+@
+text
+@a23 1
+  DFX in 'graphics\DFX.pas',
+a25 1
+  DXRender in 'graphics\DXRender.pas',
+@
+
+
+1.1
+log
+@Updated Project file so that it at least contains a Digital Tome Icon
+@
+text
+@d22 9
+a30 1
+  SaveFile in 'engine\SaveFile.pas';
+@
+

@@ -1,0 +1,36 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2003.07.15.19.36.38;	author savage;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial Upload : supports DirectX 7 headers as well as DirectX 5
+compilable in both Delphi 4 and Delphi 7.
+1) Allows you to play through the game as a female, or a monkey, or...
+2) Video memory is enabled and working properly
+3) The top level fireball spell (Inferno I think) now has two fireballs spinning around each other
+4) The notorious "Bikini" mode has been enabled
+@
+text
+@{$DEFINE DirectX}
+//{$DEFINE SHAREWARE}
+{$IFNDEF DirectX}
+  //{$DEFINE DEBUG}
+{$ENDIF}
+
+
+
+@

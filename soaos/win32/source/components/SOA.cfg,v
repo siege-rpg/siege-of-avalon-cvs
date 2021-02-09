@@ -1,0 +1,63 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2003.07.15.02.25.54;	author savage;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial Seige of Avalon : Open Source Edition
+1) Allows you to play through the game as a female, or a monkey, or...
+2) Video memory is enabled and working properly
+3) The top level fireball spell (Inferno I think) now has two fireballs spinning around each other
+4) The notorious "Bikini" mode has been enabled
+@
+text
+@-$A+
+-$B-
+-$C+
+-$D+
+-$E-
+-$F-
+-$G+
+-$H+
+-$I+
+-$J+
+-$K-
+-$L+
+-$M-
+-$N+
+-$O+
+-$P+
+-$Q-
+-$R-
+-$S-
+-$T-
+-$U-
+-$V+
+-$W-
+-$X+
+-$YD
+-$Z1
+-cg
+-AWinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+-H+
+-W+
+-M
+-$M16384,1048576
+-K$00400000
+-LN"e:\development\borland\delphi4\Lib"
+-DDirectX
+-Z
+@

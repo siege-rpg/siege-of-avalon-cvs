@@ -1,0 +1,95 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2005.04.30.14.38.35;	author savage;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Needed for Multi-lingual support
+@
+text
+@[FileID]
+Author=
+Coding=
+Approved=
+version=1
+
+[CharacterID]
+Name=
+GUID=
+
+[Titles]
+Set=
+Checked=
+Removed=
+
+[Quest]
+Added=
+Removed=
+
+[Items]
+Given=
+Taken=
+Checked=
+Added=
+
+[SyntaxCheck]
+
+[Problems]
+1=
+
+[Questions]
+1=
+
+[root]
+Count=2
+Else=
+Default=Adios.
+Say1=All(ttl(!01recovered));
+goto1=Soldier
+Say2=All(ttl(01recovered));
+goto2=Chalice
+
+[Soldier]
+Say=¿Qué quieres?
+RspTxt1=¿De dónde eres?
+NxtLn1=Soldier1
+RspTxt2=¿Has oído alguna cosa interesante por ahí?
+NxtLn2=Soldier2
+
+[Soldier1]
+Say=Soy de Fornax, aunque solo sé un poquito de magia.  Vosotros, los de los seis reinos del norte, ¡parecéis creer que todos los Fornaxanos son hechiceros de pura sangre!
+rspBack=soldier
+
+[Soldier2]
+Say=Mi amigo me dice que se ha terminado la carne de verdad.  ¡Ten cuidado con lo que comes, podría no gustarte si supieras lo que es!
+rspBack=soldier
+
+[Chalice]
+Say=Hola, señor, ¿en qué puedo ayudaros?
+RspTxt1=¿De dónde provienes?
+NxtLn1=Chalice1
+RspTxt2=¿Has oído alguna cosa interesante por ahí?
+NxtLn2=Chalice2
+
+[Chalice1]
+Say=Soy Fornaxano, y estoy orgulloso de ello!
+rspBack=chalice
+
+[Chalice2]
+Say=Probablemente ya habéis oído cualquier cosa que pueda deciros.
+rspBack=chalice
+
+@

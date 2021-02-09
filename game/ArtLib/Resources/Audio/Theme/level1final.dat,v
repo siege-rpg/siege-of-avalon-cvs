@@ -1,0 +1,27 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+expand	@b@;
+
+
+1.1
+date	2003.07.28.15.01.29;	author savage;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial sound data required for this version of the engine.
+@
+text
+@150.0
+1
+0 150.0
+1@

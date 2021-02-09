@@ -1,0 +1,50 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2005.04.30.14.38.32;	author savage;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Needed for Multi-lingual support
+@
+text
+@[root]
+Count=1
+Else=
+Default=
+Say1=
+goto1=Gall
+
+[Gall]
+say=Kommt doch näher, Freund!  Wie könnt Ihr meine Ware aus der Entfernung sehen?
+Adventure=ch1-59;
+rspDflt=Ich glaube, ich muss weiter.
+rsptxt1=Wenn Eure Preise fair sind, kaufe ich vielleicht etwas.
+script1=merchant
+rsptxt2=Ehrlich gesagt, ich kann nicht, obwohl ich auch bezweifle, dass es etwas nützen würde.
+NxtLn2=Gall2
+
+[Gall2]
+say=Was soll das nun heißen?
+rspDflt=Nichts. Ich muss jetzt wirklich weiter.  Einen schönen Tag noch.
+rsptxt1=Leider hatte ich noch keine Gelegenheit, sehr viel Geld zusammenzutragen.
+NxtLn1=Gall3
+
+[Gall3]
+say=Na, das macht nichts, Freund!  Die meisten von uns Händlern verkaufen nicht nur, sonder kaufen auch. Wenn Ihr also Sachen habt, für die Ihr keinen Nutzen mehr habt,  könnt Ihr sie hier gegen etwas tauschen, das Ihr braucht .
+rspDflt=Ich komme wieder, wenn mir nach Feilschen ist.  Ade.
+rsptxt1=Ich habe ein paar solche Gegenstände.  Zeigt mit bitte Eure Ware.
+script1=merchant
+@

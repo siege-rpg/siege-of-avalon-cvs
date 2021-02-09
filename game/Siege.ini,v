@@ -1,0 +1,385 @@
+head	1.6;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.6
+date	2005.05.28.09.52.52;	author savage;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2005.05.03.21.31.34;	author savage;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2003.08.16.13.16.23;	author savage;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2003.07.17.17.22.40;	author savage;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2003.07.17.16.59.36;	author savage;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2003.07.15.22.12.10;	author savage;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.6
+log
+@true values changed to 1 and false values changed to 0
+@
+text
+@[Settings]
+ArtPath=ArtLib/Resources
+TilePath=ArtLib/Tiles
+SoundPath=ArtLib/Resources/Audio
+ItemDB=ArtLib/Resources/Database/Items.DB
+XRefDB=ArtLib/Resources/Database/xref.db
+TitlesDB=ArtLib/Resources/Database/Title.db
+Interface=Interface
+StartFile=Maps/OKeepL2.lvl
+JournalIntro=Journalentry1,Journalentry2,corvus
+history=HistoryJournalPage1,HistoryJournalPage2,HistoryJournalPage3,HistoryJournalPage4,HistoryJournalPage5,HistoryJournalPage6
+Ending=EpilogeA,EpilogeB,EpilogeC,EpilogeD
+Transition=GeneralTransition1
+MoviePath=Movies
+OpeningMovie=SiegeOpening.bik
+ClosingMovie=SiegeClosing.bik
+ShowRepaint=0
+NoPageNumbers=0
+UseSmallFont=0
+NoTransit=0
+AmbientOnly=0
+ShowIntro=1
+ShowHistory=0
+MusicVolume=154
+SoundVolume=181
+Shadows=1
+Brightness=0
+Interval=22
+bikini=0
+CacheSize=640
+GIFToPOX=0
+AllSpells=0
+Debug=0
+UseVideo=1
+ReadCache=0
+WriteCache=0
+Lighting=1
+Sound=1
+Music=1
+UseTimer=0
+Popup=0
+VideoCapture=1
+LanguagePath=english
+
+[keyboard]
+Xray=88
+spells=83
+Pause=32
+Map=77
+Award=65
+Journal=74
+Options=79
+Inventory=73
+close=67
+battlecry=66
+combatmode=20
+
+[Character]
+AttackSounds=StaffMiss
+PainSounds=malegrunt2,malegrunt4,malegrunt5
+DeathSounds=malekill5,malekill7
+Resource=PlayerFem
+
+[Chapters]
+Chapter 1=Available
+
+[MapNames]
+Astralplane=Astral Plane
+Caves01=Caves 1
+Caves02=Caves 2
+church=Church
+crypt01=Crypt Lvl 1
+crypt02=Crypt Lvl 2
+crypt03=Crypt Lvl 3
+Forest01=Forest 1
+Forest02=Forest 2
+Forest03=Forest 3
+Forest04=Forest 4
+Forest05=Forest 5
+Forest06=Forest 6
+Forest07=Forest 7
+Forest08=Forest 8
+Forest09=Forest 9
+IBailey01=Inner Bailey
+Icecave=Ice Cave
+Ikeep01=Inner Keep Lvl 1
+Ikeep02=Inner Keep Lvl 2
+island=Magic Island
+KeepBsmt=I.K. Basement
+lavaflat=Infernus
+lizcave=Lizard Cave
+OB1b=Outer Bailey
+OkeepL1=Outer Keep Lvl 1
+OkeepL2=Outer Keep Lvl 2
+OkeepL3=Outer Keep Lvl 3
+Okeepsub1b=O.K. Basement
+Okeepsub2=O.K. Basement
+RitualCellar=Dreamwalker Camp
+snow=Frosthelm
+southgate1b=South Gate Lvl 1
+southgate2=South Gate Lvl 2
+southgatesub1=S.G. Basement
+swmpflat=Notsuoh
+temple01=Temple
+tomb01=Tomb
+Vcell=Cellar
+Village1=Village 1
+Village2=Village 2
+Village3=Village 3
+Village4=Village 4
+Village01-2=Village 1
+Village02-2=Village 2
+Village03-2=Village 3
+Village04-2=Village 4
+Village01-3=Village 1
+Village02-3=Village 2
+Village03-3=Village 3
+Village04-3=Village 4
+Village01-4=Village 1
+Village02-4=Village 2
+Village03-4=Village 3
+Village04-4=Village 4
+Village05-4=Village 5
+Village06-4=Village 6
+Village07-4=Village 7
+Village08-4=Village 8
+Village09-4=Village 9
+Village10-4=Village 10
+Village11-4=Village 11
+Village12-4=Village 12
+Village13-4=Village 13
+Village14-4=Village 14
+Village15-4=Village 15
+Village16-4=Village 16
+Village01-5=Village 1
+Village02-5=Village 2
+Village05-5=Village 5
+Village06-5=Village 6
+wiztwr1=Wiz Tower Lvl 1
+wiztwr2=Wiz Tower Lvl 2
+wiztwr3=Wiz Tower Lvl 3
+Wizundr=Wiz Tower Bsmnt
+6catwalk=Catwalk
+6caves01=Caves 1
+6caves02=Caves 2
+6Church=Church
+6crypt01=Crypt Lvl 1
+6crypt04=Crypt Lvl 4
+6finalfight=Outer Bailey
+6IBailey01=Inner Bailey
+6IKeep01=Inner Keep Lvl 1
+6IKeep02=Inner Keep Lvl 2
+6IKeepTrial=Inner Keep Lvl 1
+6KeepBsmt=I.K. Basement
+6OB1b=Outer Bailey
+6OB1broth=Outer Bailey
+6OKeepL1=Outer Keep Lvl 1
+6OKeepL3=Outer Keep Lvl 3
+6Okeepsub1b=O.K. Basement
+6Okeepsub2=O.K. Basement
+6PGate=Peasant Gate
+6southgate1b=South Gate Lvl 1
+6southgate2=South Gate Lvl 2
+6southgate3=South Gate Lvl 3
+6southgatesub1=S.G. Basement
+6Vcell=Cellar
+6Village01=Village 1
+6Village02=Village 2
+6Village05=Village 5
+6Village06=Village 6
+
+[InstallPaths]
+SoACH1c=E:\Games\SOAOS
+
+[Versions]
+SoACH1c=1.1.1.1030
+
+[Keys]
+RKey=1616544012
+@
+
+
+1.5
+log
+@Changes since initial release
+@
+text
+@d17 9
+a25 9
+ShowRepaint=false
+NoPageNumbers=true
+UseSmallFont=false
+NoTransit=false
+AmbientOnly=false
+ShowIntro=true
+ShowHistory=false
+MusicVolume=90
+SoundVolume=156
+d29 1
+a29 1
+bikini=false
+d31 2
+a32 2
+GIFToPOX=false
+AllSpells=false
+d34 9
+a42 9
+UseVideo=true
+ReadCache=false
+WriteCache=false
+Lighting=true
+Sound=true
+Music=true
+UseTimer=false
+Popup=false
+VideoCapture=true
+@
+
+
+1.4
+log
+@Syncronized with First Chapter
+@
+text
+@d2 2
+a3 2
+ArtPath=ArtLib/resources
+TilePath=ArtLib/tiles
+d5 6
+a10 5
+MusicVolume=100
+SoundVolume=100
+Shadows=1
+JournalIntro=Journalentry1,corvus
+Interface=interface
+d22 9
+a30 3
+ItemDB=ArtLib/Resources/Database/items.db
+XRefDB=ArtLib/Resources/Database/xref.db
+TitlesDB=ArtLib/Resources/Database/title.db
+a33 6
+Interval=22
+bikini=false
+startFile=Maps/OKeepL2.lvl
+CacheSize=200
+sound=true
+music=true
+d38 2
+a39 2
+Intro=off
+Brightness=0
+d43 1
+d62 1
+a62 1
+Resource=Player
+a66 1
+
+d173 1
+a173 1
+SoACD=C:/Program Files/Digital Tome/Siege Of Avalon
+d176 1
+a176 1
+SoACD=1.7.1.0913
+d179 1
+a179 2
+RKey=
+
+@
+
+
+1.3
+log
+@Missed a relative path for Movies.
+@
+text
+@d2 3
+a4 3
+ArtPath=ArtLib\resources
+TilePath=ArtLib\tiles
+SoundPath=ArtLib\Resources\Audio
+d21 3
+a23 3
+ItemDB=ArtLib\Resources\Database\items.db
+XRefDB=ArtLib\Resources\Database\xref.db
+TitlesDB=ArtLib\Resources\Database\title.db
+d29 1
+a29 1
+startFile=Maps\OKeepL2.lvl
+d64 1
+a64 5
+Chapter 2=Available
+Chapter 3=Available
+Chapter 4=Available
+Chapter 5=Available
+Chapter 6=Available
+d172 1
+a172 1
+SoACD=C:\Program Files\Digital Tome\Siege Of Avalon
+d178 1
+a178 1
+RKey=338892524
+@
+
+
+1.2
+log
+@Changed Paths so that they are relative to the executable, rather than hard coded.
+@
+text
+@d13 1
+a13 1
+MoviePath=C:\Program Files\Digital Tome\Siege Of Avalon\Movies
+@
+
+
+1.1
+log
+@Data Files required for the game
+@
+text
+@d2 3
+a4 3
+ArtPath=C:\Program Files\Digital Tome\Siege Of Avalon\ArtLib\resources
+TilePath=C:\Program Files\Digital Tome\Siege Of Avalon\ArtLib\tiles
+SoundPath=C:\Program Files\Digital Tome\Siege Of Avalon\ArtLib\Resources\Audio
+d9 1
+a9 1
+Interface=C:\Program Files\Digital Tome\Siege Of Avalon\interface
+d21 3
+a23 3
+ItemDB=C:\Program Files\Digital Tome\Siege Of Avalon\ArtLib\Resources\Database\items.db
+XRefDB=C:\Program Files\Digital Tome\Siege Of Avalon\ArtLib\Resources\Database\xref.db
+TitlesDB=C:\Program Files\Digital Tome\Siege Of Avalon\ArtLib\Resources\Database\title.db
+d29 1
+a29 1
+startFile=C:\Program Files\Digital Tome\Siege Of Avalon\Maps\OKeepL2.lvl
+@
+

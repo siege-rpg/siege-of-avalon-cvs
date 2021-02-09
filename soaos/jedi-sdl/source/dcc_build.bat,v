@@ -1,0 +1,40 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@:: @;
+
+
+1.2
+date	2006.10.15.17.00.51;	author savage;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2005.05.25.23.15.34;	author savage;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@Basic changes
+@
+text
+@dcc32 SoAoS.dpr -B -E..\..\..\game -Ndcu
+pause
+@
+
+
+1.1
+log
+@Latest Changes
+@
+text
+@d2 1
+@
+

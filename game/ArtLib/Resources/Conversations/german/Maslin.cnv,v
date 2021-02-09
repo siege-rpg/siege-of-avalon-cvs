@@ -1,0 +1,62 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2005.04.30.14.38.31;	author savage;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Needed for Multi-lingual support
+@
+text
+@[root]
+Count=2
+Else=
+Default=Danke, Maslin.
+Say1=All(ttl(!01recovered));
+goto1=Maslin
+Say2=All(ttl(01recovered));
+goto2=Chalice
+
+;Before recovery of Chalice
+[Maslin]
+say=Seid gegrüßt, Herr.  Was führt Euch in diese Ecke Avalons?
+rspDflt=None
+rspTxt1=Ich bin in eigener Sache unterwegs.
+NxtLn1=Maslin1
+
+[Maslin1]
+say=Hört sich geheimnisvoll an, Herr.  Aber ich will nicht neugierig sein.
+rspDflt=Danke für Eure Nachsicht.  Ade.
+
+;After recovery of Chalice
+[Chalice]
+say=Hallo nochmal.  Geht Ihr noch immer Eurer geheimen Mission nach?
+rspDflt=None
+rspTxt1=Es ist nicht so geheimnisvoll, wie Ihr es Euch vorstellt.  Ich gehorche nur der Pflicht.
+NxtLn1=Chalice1
+
+[Chalice1]
+say=Mehr kann ein guter Soldat nicht machen, nicht wahr?
+rspDflt=None
+rspTxt1=Vielleicht.  Es gibt aber auch welche, die über ihre Pflicht hinausgehen.
+NxtLn1=Chalice2
+
+[Chalice2]
+say=Das ist wahr.  Ich vermute, dass Ihr zu dieser Sorte Soldat gehört.
+rspDflt=Ich danke Euch für das Kompliment.  Ade.
+
+[SyntaxCheck]
+Michael Caruso(3/17/01)=Passed
+@

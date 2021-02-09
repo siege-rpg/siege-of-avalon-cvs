@@ -1,0 +1,56 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@:: @;
+
+
+1.3
+date	2006.10.15.17.00.51;	author savage;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2005.06.01.20.24.19;	author savage;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2005.05.25.23.15.34;	author savage;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@Basic changes
+@
+text
+@fpc SoAoS.dpr -Sd -B -FE../../../game -FUdcu
+pause
+@
+
+
+1.2
+log
+@Fix for Linux case sensitivity issues
+@
+text
+@d2 1
+@
+
+
+1.1
+log
+@Latest Changes
+@
+text
+@d1 1
+a1 1
+fpc SoAoS.dpr -Sd -B -FE..\..\..\game -FUdcu
+@
+

@@ -1,0 +1,85 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2003.07.16.20.42.23;	author savage;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2003.07.15.02.37.41;	author savage;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@Changed AniDemo so that the Game and GameMap objects are now created dynamically. Therefore now there is no need to install any components inorder to compile the game.
+@
+text
+@-$A-
+-$B-
+-$C-
+-$D-
+-$E-
+-$F-
+-$G+
+-$H+
+-$I+
+-$J+
+-$K-
+-$L-
+-$M-
+-$N+
+-$O+
+-$P+
+-$Q-
+-$R-
+-$S-
+-$T-
+-$U-
+-$V+
+-$W-
+-$X+
+-$Y-
+-$Z1
+-cg
+-AWinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+-H+
+-W+
+-M
+-$M16384,8388608
+-K$00800000
+-E"../../../game"
+-N"dcu"
+-LN"e:\development\borland\delphi4\Lib"
+-U"ai;engine;graphics;interface;sound"
+-O"ai;engine;graphics;interface;sound"
+-I"ai;engine;graphics;interface;sound"
+-R"ai;engine;graphics;interface;sound"
+-DDirectX
+@
+
+
+1.1
+log
+@Initial Seige of Avalon : Open Source Edition
+1) Allows you to play through the game as a female, or a monkey, or...
+2) Video memory is enabled and working properly
+3) The top level fireball spell (Inferno I think) now has two fireballs spinning around each other
+4) The notorious "Bikini" mode has been enabled
+@
+text
+@d34 1
+a34 1
+-E"../../game"
+@
+

@@ -1,0 +1,60 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2003.07.15.20.16.59;	author savage;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial Upload : Updated to Make use of DirectX 7 headers, but also still comiles with DirectX 5 ( original ) header.
+The main things Steven changed (if he remembers correctly) were:
+1) Allows you to play through the game as a female, or a monkey, or...
+2) Video memory is enabled and working properly
+3) The top level fireball spell (Inferno I think) now has two fireballs spinning around each other
+4) The notorious "Bikini" mode has been enabled
+@
+text
+@{$B-,J+,Q-,R-,T-,X+}
+
+{$IFDEF VER100}
+  // Delphi 3
+  {$DEFINE DelphiX_Delphi3}
+{$ENDIF}
+
+{$IFDEF VER120}
+  // Delphi 4
+  {$DEFINE DelphiX_Delphi4}
+{$ENDIF}
+
+{$IFDEF VER130}
+  // Delphi 5
+  {$DEFINE DelphiX_Delphi5}
+{$ENDIF}
+
+{$IFDEF DelphiX_Delphi3}
+  {$DEFINE DelphiX_Spt3}
+{$ENDIF}
+
+{$IFDEF DelphiX_Delphi4}
+  {$DEFINE DelphiX_Spt3}
+  {$DEFINE DelphiX_Spt4}
+{$ENDIF}
+
+{$IFDEF DelphiX_Delphi5}
+  {$DEFINE DelphiX_Spt3}
+  {$DEFINE DelphiX_Spt4}
+  {$DEFINE DelphiX_Spt5}
+{$ENDIF}
+
+@

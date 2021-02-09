@@ -1,0 +1,25 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2005.06.02.22.37.49;	author savage;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@More Cross-Platform additions and amendments
+@
+text
+@#! /bin/bash
+fpc SoAoS.dpr -Sd -B -FE../../../game -FUdcu
+@
